@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>FilterExample</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>SampleServlet</servlet-name>
+    <servlet-class>com.company.servlets.SampleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SampleServlet</servlet-name>
+    <url-pattern>/sampleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.company.servlets.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/adminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FilterConfigServlet</servlet-name>
+    <servlet-class>com.company.servlets.FilterConfigServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterConfigServlet</servlet-name>
+    <url-pattern>/filterConfigServlet</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>MySampleFilter</filter-name>
+    <filter-class>com.company.servlets.MySampleFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MySampleFilter</filter-name>
+    <url-pattern>/sampleServlet</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>AuthenticationFilter</filter-name>
+    <filter-class>com.company.servlets.AuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthenticationFilter</filter-name>
+    <url-pattern>/adminServlet</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>MyFilterWithFilterConfig</filter-name>
+    <filter-class>com.company.servlets.MyFilterWithFilterConfig</filter-class>
+    <init-param>
+       <param-name>construction</param-name>
+       <param-value>yes</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>MyFilterWithFilterConfig</filter-name>
+    <url-pattern>/filterConfigServlet</url-pattern>
+  </filter-mapping>
+</web-app>
