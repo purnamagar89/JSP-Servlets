@@ -26,6 +26,7 @@ public class SimpleServlet extends HttpServlet {
 		out.println("<h1>Simple Servlet<h1>");
 		out.println("<p>This is a paragraph</p>");
 		System.out.println("This is Get Method");
+		System.out.println("test change");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
